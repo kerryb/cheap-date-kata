@@ -1,4 +1,4 @@
-defmodule CheapDate do
+defmodule CheapDate.Ugly do
   def choose_wine(wines) do
     if Enum.empty?(wines) do
       nil
