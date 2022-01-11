@@ -1,7 +1,7 @@
 defmodule CheapDateTest do
   use ExUnit.Case
 
-  for module <- [CheapDate.Ugly] do
+  for module <- [CheapDate.Ugly, CheapDate.PatternMatching] do
     @module module
     describe "#{@module}.choose_wine/1" do
       test "returns nil if there's no wine" do
