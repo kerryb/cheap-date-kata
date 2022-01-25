@@ -1,9 +1,8 @@
 defmodule CheapDate.Recursive do
   def choose_wine([]), do: nil
   def choose_wine([wine]), do: wine
-  def choose_wine(wines), do: do_choose_wine(wines, {%{price: nil}, %{price: nil}})
+  def choose_wine(wines), do: do_choose_wine(wines, {%{price: :infinity}, %{price: :infinity}})
 
-  # Note: we rely on the fact that in Elixir nil compares as > any integer
   defp do_choose_wine([], {_cheapest, second}), do: second
 
   defp do_choose_wine([head | tail], {cheapest, _second}) when head.price < cheapest.price do

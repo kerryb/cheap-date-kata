@@ -9,8 +9,7 @@ defmodule CheapDate.Reduce do
 
       true ->
         wines
-        |> Enum.reduce({%{price: nil}, %{price: nil}}, fn
-          # Note: we rely on the fact that in Elixir nil compares as > any integer
+        |> Enum.reduce({%{price: :infinity}, %{price: :infinity}}, fn
           wine, {cheapest, _second} when wine.price < cheapest.price -> {wine, cheapest}
           wine, {cheapest, second} when wine.price < second.price -> {cheapest, wine}
           _wine, acc -> acc
